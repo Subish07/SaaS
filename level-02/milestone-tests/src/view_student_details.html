@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Department Detail</title>
+	<title>Student Detail</title>
 	<style>
 		html{
         background-image: linear-gradient(rgba(255, 255, 255, 0.959), rgba(255, 255, 255, 0.952)),url("abc.jpg");
-		color:rgb(90, 88, 88);			
+		color:rgb(90, 88, 88);
       }
 		.a{
 			
@@ -54,41 +54,25 @@
 		.text{
 			margin-left:0px;
 			width:100%;
-			padding:4px;
 			border-radius: 5px; 
 			font-size:20px;
 			border-style: solid;
 			border-color:lightgrey;
 			border-width:1.5px;
 		}
-		select{
-			margin-left:0px;
-			width:100%;
-			border-radius: 5px; 
-			font-size:15px;
-			padding: 5px;
-			border-style: solid;
-			border-color:lightgrey;
-			border-width:1.5px;
-		}
+		
 	</style>
 	
 </head>
 <body>
     <!-- Main Page Content -->
-	<form id="my" action="D:\level-02\src\index.html">
+	<form id="my" action="view_details.html">
 		<div class="a">
-			<h1><b> FETCH DEPARTMENT DETAILS</b></h1>
+			<h1><b> FETCH STUDENT DETAILS</b></h1>
 			
-			<div class='b'><label>Department:</label><br><input class='text'type="text" name="a1" id="b"><br></div>
-			<div class='b'><label>Section:</label><br>
-				<select id="sec">
-					<option value="a">A</option>
-					<option value="b">B</option>
-					<option value="c">C</option>
-				  </select></div>		
-			<input class ='button1'  style="margin-left:65.5%;"type="submit" value="Go Back">
-			<input class ='button2' type="submit" value="Get List"> 
+			<div class='b'><label>Roll Number:</label><br><input class='text'type="text" name="a1" id="b"><br></div>
+			<a href="view_details.html"><button class ='button1'  style="margin-left:58.5%;">Go Back</button></a>
+			<input class ='button2' type="submit" value="Request"> 
 		</div>
 	</form>
 </body>
