@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Department Change</title>
+	<style>
+		html{
+        background-image: linear-gradient(rgba(255, 255, 255, 0.959), rgba(255, 255, 255, 0.952)),url("abc.jpg");
+		color:rgb(90, 88, 88);
+      }
+		.a{
+			
+			margin-top:10%;
+			margin-left:35%;
+			margin-right:30%;
+			border:1px white;
+			padding:16px;
+            float:left;
+			font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		}
+		.b
+		{
+			margin-top:20px;
+		}
+		.button2
+      	{ 
+        text-align:center;
+        cursor:pointer;
+        margin-top:20px;
+        background-color:rgb(61, 167, 12);
+		border:none;
+		color:white;
+		font-size: 15px;
+		padding: 10px;
+		border-radius:5px;
+      	}
+		.button1
+      	{ 
+        text-align:center;
+        cursor:pointer;
+        margin-top:20px;
+		border-radius: 5px;
+		font-family: 20px;
+		padding: 10px;
+		font-size:15px;
+		border:none;
+      	}
+         label {
+			display: inline-block;
+			text-align: right;
+			float: left;
+			margin-bottom:10px;
+			font-weight: 600;		}
+		.text{
+			margin-left:0px;
+			width:100%;
+			border-radius: 5px; 
+			font-size:20px;
+			border-style: solid;
+			border-color:lightgrey;
+			border-width:1.5px;
+		}
+		select{
+			margin-left:0px;
+			width:100%;
+			border-radius: 5px; 
+			font-size:15px;
+			padding: 5px;
+			border-style: solid;
+			border-color:lightgrey;
+			border-width:1.5px;
+		}
+		h1{
+			font-size: 30px;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif      
+		}
+	</style>
+	
+</head>
+<body>
+    <!-- Main Page Content -->
+	<form id="my" action="index.html">
+		<div class="a">
+			<h1><b> REQUEST DEPARTMENT CHANGE</b></h1>
+			
+			<div class='b'><label>Roll Number:</label><br><input class='text'type="text" name="a1" id="b"><br></div>
+			<div class='b'><label>Select Department:</label><br>
+				<select id="dept">
+				<option value="EEE">EEE</option>
+				<option value="CSE">CSE</option>
+				<option value="MECH">MECH</option>
+				<option value="CIVIL">CIVIL</option>
+			  </select><br></div>
+			<input class ='button1'  style="margin-left:65.5%;"type="submit" value="Go Back">
+			<input class ='button2' type="submit" value="Request"> 
+		</div>
+	</form>
+</body>
+</html>
