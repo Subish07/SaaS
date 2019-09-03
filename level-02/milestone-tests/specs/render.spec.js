@@ -87,11 +87,9 @@ const BACK_TO_VIEW_DETAILS = async () => bs.query( "a[href='view_details.html']"
 const readRootConfig = function() {
   let { filename } = module;
   let root = filename.split('specs');
-  console.log("hello"+`${root}`);
   return `file://${root[0]}src/index.html`;
 };
-//const indexLink = readRootConfig();
-const indexLink = `file:///D:/milestone-tests/src/index.html`
+const indexLink = readRootConfig();
 
 describe( "render", async () => {
   beforeAll(async () => {
