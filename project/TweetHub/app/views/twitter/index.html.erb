@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-10">
+    <h2>My Tweets</h2>
+  </div>
+</div>
+
+<br/>
+
+<ul class="list-group">
+  <% @tweets.each do |tweet| %>
+    <li class="list-group-item">
+      <a href="#"><%= tweet.content %>     <%= tweet.retweets %></a>
+    </li>
+  <% end %>
+</ul>
+
