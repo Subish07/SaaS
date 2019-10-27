@@ -3599,3 +3599,528 @@ DepartmentTest: test_Should_create_a_new_department_with_name
 DepartmentTest: test_Should_define_Department_model
 ---------------------------------------------------
   [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (10.5ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "students"[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "departments"[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "sections"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "students" ("roll_no", "name", "email", "created_at", "updated_at", "id", "section_id", "department_id") VALUES (1, 'MyString', 'MyString', '2019-10-27 13:07:20.152304', '2019-10-27 13:07:20.152304', 980190962, 980190962, 980190962)[0m
+  [1m[36mFixture Insert (6.6ms)[0m  [1m[32mINSERT INTO "students" ("roll_no", "name", "email", "created_at", "updated_at", "id", "section_id", "department_id") VALUES (1, 'MyString', 'MyString', '2019-10-27 13:07:20.152304', '2019-10-27 13:07:20.152304', 298486374, 298486374, 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2019-10-27 13:07:20.168825', '2019-10-27 13:07:20.168825', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2019-10-27 13:07:20.168825', '2019-10-27 13:07:20.168825', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "sections" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2019-10-27 13:07:20.170633', '2019-10-27 13:07:20.170633', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "sections" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2019-10-27 13:07:20.170633', '2019-10-27 13:07:20.170633', 298486374)[0m
+  [1m[35m (11.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------
+StudentsControllerTest: test_Should_create_new_Students
+-------------------------------------------------------
+Started GET "/departments" for 127.0.0.1 at 2019-10-27 18:37:20 +0530
+Processing by DepartmentsController#index as HTML
+  Rendering departments/index.html.erb within layouts/application
+  [1m[36mDepartment Load (0.3ms)[0m  [1m[34mSELECT "departments".* FROM "departments"[0m
+  Rendered departments/index.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 11107ms (Views: 11086.3ms | ActiveRecord: 0.3ms)
+Started GET "/departments/new" for 127.0.0.1 at 2019-10-27 18:37:31 +0530
+Processing by DepartmentsController#new as HTML
+  Rendering departments/new.html.erb within layouts/application
+  Rendered departments/new.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 35ms (Views: 33.2ms | ActiveRecord: 0.0ms)
+Started POST "/departments" for 127.0.0.1 at 2019-10-27 18:37:31 +0530
+Processing by DepartmentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "department"=>{"name"=>"NEW DEPT"}, "commit"=>"Create Department"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDepartment Create (1.3ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "NEW DEPT"], ["created_at", "2019-10-27 13:07:31.788337"], ["updated_at", "2019-10-27 13:07:31.788337"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/departments
+Completed 302 Found in 5ms (ActiveRecord: 1.4ms)
+Started GET "/departments" for 127.0.0.1 at 2019-10-27 18:37:31 +0530
+Processing by DepartmentsController#index as HTML
+  Rendering departments/index.html.erb within layouts/application
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments"[0m
+  Rendered departments/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.1ms)
+Started GET "/sections" for 127.0.0.1 at 2019-10-27 18:37:31 +0530
+Processing by SectionsController#index as HTML
+  Rendering sections/index.html.erb within layouts/application
+  [1m[36mSection Load (0.3ms)[0m  [1m[34mSELECT "sections".* FROM "sections"[0m
+  Rendered sections/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.3ms)
+Started GET "/sections/new" for 127.0.0.1 at 2019-10-27 18:37:31 +0530
+Processing by SectionsController#new as HTML
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments"[0m
+  Rendering sections/new.html.erb within layouts/application
+  Rendered sections/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 11ms (Views: 8.2ms | ActiveRecord: 0.1ms)
+Started POST "/sections" for 127.0.0.1 at 2019-10-27 18:37:31 +0530
+Processing by SectionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "section"=>{"name"=>"A", "department_id"=>"980190963"}, "commit"=>"Create Section"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDepartment Load (0.2ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 980190963], ["LIMIT", 1]]
+  [1m[36mSection Create (0.2ms)[0m  [1m[32mINSERT INTO "sections" ("name", "created_at", "updated_at", "department_id") VALUES (?, ?, ?, ?)[0m  [["name", "A"], ["created_at", "2019-10-27 13:07:31.889986"], ["updated_at", "2019-10-27 13:07:31.889986"], ["department_id", 980190963]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/sections
+Completed 302 Found in 33ms (ActiveRecord: 0.6ms)
+Started GET "/sections" for 127.0.0.1 at 2019-10-27 18:37:31 +0530
+Processing by SectionsController#index as HTML
+  Rendering sections/index.html.erb within layouts/application
+  [1m[36mSection Load (0.1ms)[0m  [1m[34mSELECT "sections".* FROM "sections"[0m
+  Rendered sections/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.1ms)
+Started GET "/students" for 127.0.0.1 at 2019-10-27 18:37:31 +0530
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.2ms)
+Started GET "/students/new" for 127.0.0.1 at 2019-10-27 18:37:31 +0530
+Processing by StudentsController#new as HTML
+  [1m[36mSection Load (0.1ms)[0m  [1m[34mSELECT "sections".* FROM "sections"[0m
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments"[0m
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 7ms (Views: 4.9ms | ActiveRecord: 0.2ms)
+Started POST "/students" for 127.0.0.1 at 2019-10-27 18:37:31 +0530
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "student"=>{"name"=>"Arjun", "department_id"=>"980190963", "section_id"=>"980190963"}, "commit"=>"Create Student"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSection Load (0.2ms)[0m  [1m[34mSELECT  "sections".* FROM "sections" WHERE "sections"."id" = ? LIMIT ?[0m  [["id", 980190963], ["LIMIT", 1]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 980190963], ["LIMIT", 1]]
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "department_id", "section_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Arjun"], ["department_id", 980190963], ["section_id", 980190963], ["created_at", "2019-10-27 13:07:31.950826"], ["updated_at", "2019-10-27 13:07:31.950826"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/students
+Completed 302 Found in 8ms (ActiveRecord: 0.6ms)
+Started GET "/students" for 127.0.0.1 at 2019-10-27 18:37:31 +0530
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.1ms)
+  [1m[35m (1.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+StudentsControllerTest: test_Should_get_all_students
+----------------------------------------------------
+Started GET "/students" for 127.0.0.1 at 2019-10-27 18:37:31 +0530
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------
+StudentsControllerTest: test_Should_navigate_to_new_students_on_click
+---------------------------------------------------------------------
+Started GET "/students" for 127.0.0.1 at 2019-10-27 18:37:31 +0530
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.1ms)
+Started GET "/students/new" for 127.0.0.1 at 2019-10-27 18:37:31 +0530
+Processing by StudentsController#new as HTML
+  [1m[36mSection Load (0.1ms)[0m  [1m[34mSELECT "sections".* FROM "sections"[0m
+  [1m[36mDepartment Load (0.7ms)[0m  [1m[34mSELECT "departments".* FROM "departments"[0m
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 9ms (Views: 6.3ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------
+StudentsControllerTest: test_Should_list_students_details
+---------------------------------------------------------
+Started GET "/departments" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by DepartmentsController#index as HTML
+  Rendering departments/index.html.erb within layouts/application
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments"[0m
+  Rendered departments/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.1ms)
+Started GET "/departments/new" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by DepartmentsController#new as HTML
+  Rendering departments/new.html.erb within layouts/application
+  Rendered departments/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+Started POST "/departments" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by DepartmentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "department"=>{"name"=>"NEW DEPT"}, "commit"=>"Create Department"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDepartment Create (1.5ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "NEW DEPT"], ["created_at", "2019-10-27 13:07:32.028901"], ["updated_at", "2019-10-27 13:07:32.028901"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/departments
+Completed 302 Found in 4ms (ActiveRecord: 1.6ms)
+Started GET "/departments" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by DepartmentsController#index as HTML
+  Rendering departments/index.html.erb within layouts/application
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments"[0m
+  Rendered departments/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.1ms)
+Started GET "/sections" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by SectionsController#index as HTML
+  Rendering sections/index.html.erb within layouts/application
+  [1m[36mSection Load (0.1ms)[0m  [1m[34mSELECT "sections".* FROM "sections"[0m
+  Rendered sections/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.1ms)
+Started GET "/sections/new" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by SectionsController#new as HTML
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments"[0m
+  Rendering sections/new.html.erb within layouts/application
+  Rendered sections/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.1ms)
+Started POST "/sections" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by SectionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "section"=>{"name"=>"A", "department_id"=>"980190963"}, "commit"=>"Create Section"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 980190963], ["LIMIT", 1]]
+  [1m[36mSection Create (0.2ms)[0m  [1m[32mINSERT INTO "sections" ("name", "created_at", "updated_at", "department_id") VALUES (?, ?, ?, ?)[0m  [["name", "A"], ["created_at", "2019-10-27 13:07:32.065858"], ["updated_at", "2019-10-27 13:07:32.065858"], ["department_id", 980190963]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/sections
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+Started GET "/sections" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by SectionsController#index as HTML
+  Rendering sections/index.html.erb within layouts/application
+  [1m[36mSection Load (0.1ms)[0m  [1m[34mSELECT "sections".* FROM "sections"[0m
+  Rendered sections/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.1ms)
+Started GET "/students" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.1ms)
+Started GET "/students/new" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by StudentsController#new as HTML
+  [1m[36mSection Load (0.1ms)[0m  [1m[34mSELECT "sections".* FROM "sections"[0m
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments"[0m
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.2ms)
+Started POST "/students" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "student"=>{"name"=>"Arjun", "department_id"=>"980190963", "section_id"=>"980190963"}, "commit"=>"Create Student"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSection Load (0.1ms)[0m  [1m[34mSELECT  "sections".* FROM "sections" WHERE "sections"."id" = ? LIMIT ?[0m  [["id", 980190963], ["LIMIT", 1]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 980190963], ["LIMIT", 1]]
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "department_id", "section_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Arjun"], ["department_id", 980190963], ["section_id", 980190963], ["created_at", "2019-10-27 13:07:32.102023"], ["updated_at", "2019-10-27 13:07:32.102023"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/students
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+Started GET "/students" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.1ms)
+Started GET "/students/980190963" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 980190963], ["LIMIT", 1]]
+  [1m[36mSection Load (0.1ms)[0m  [1m[34mSELECT  "sections".* FROM "sections" WHERE "sections"."id" = ? LIMIT ?[0m  [["id", 980190963], ["LIMIT", 1]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 980190963], ["LIMIT", 1]]
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 6ms (Views: 2.6ms | ActiveRecord: 0.3ms)
+  [1m[35m (1.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------------
+DepartmentsControllerTest: test_Should_create_new_department
+------------------------------------------------------------
+Started GET "/departments" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by DepartmentsController#index as HTML
+  Rendering departments/index.html.erb within layouts/application
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments"[0m
+  Rendered departments/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.1ms)
+Started GET "/departments/new" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by DepartmentsController#new as HTML
+  Rendering departments/new.html.erb within layouts/application
+  Rendered departments/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 7ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+Started POST "/departments" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by DepartmentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "department"=>{"name"=>"New Dept"}, "commit"=>"Create Department"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDepartment Create (6.3ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "New Dept"], ["created_at", "2019-10-27 13:07:32.157295"], ["updated_at", "2019-10-27 13:07:32.157295"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/departments
+Completed 302 Found in 10ms (ActiveRecord: 6.5ms)
+Started GET "/departments" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by DepartmentsController#index as HTML
+  Rendering departments/index.html.erb within layouts/application
+  [1m[36mDepartment Load (3.7ms)[0m  [1m[34mSELECT "departments".* FROM "departments"[0m
+  Rendered departments/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 7ms (Views: 2.9ms | ActiveRecord: 3.7ms)
+  [1m[35m (1.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+DepartmentsControllerTest: test_Should_get_all_departments
+----------------------------------------------------------
+Started GET "/departments" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by DepartmentsController#index as HTML
+  Rendering departments/index.html.erb within layouts/application
+  [1m[36mDepartment Load (0.2ms)[0m  [1m[34mSELECT "departments".* FROM "departments"[0m
+  Rendered departments/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------------
+DepartmentsControllerTest: test_Should_navigate_to_new_department_on_click
+--------------------------------------------------------------------------
+Started GET "/departments" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by DepartmentsController#index as HTML
+  Rendering departments/index.html.erb within layouts/application
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments"[0m
+  Rendered departments/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.1ms)
+Started GET "/departments/new" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by DepartmentsController#new as HTML
+  Rendering departments/new.html.erb within layouts/application
+  Rendered departments/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------
+StudentTest: test_Deleting_a_section_should_delete_all_students
+---------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDepartment Create (1.4ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "MECH"], ["created_at", "2019-10-27 13:07:32.216582"], ["updated_at", "2019-10-27 13:07:32.216582"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSection Create (0.2ms)[0m  [1m[32mINSERT INTO "sections" ("name", "created_at", "updated_at", "department_id") VALUES (?, ?, ?, ?)[0m  [["name", "A"], ["created_at", "2019-10-27 13:07:32.219740"], ["updated_at", "2019-10-27 13:07:32.219740"], ["department_id", 980190963]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "department_id", "section_id", "created_at", "updated_at", "roll_no", "email") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "A"], ["department_id", 980190963], ["section_id", 980190963], ["created_at", "2019-10-27 13:07:32.228326"], ["updated_at", "2019-10-27 13:07:32.228326"], ["roll_no", 1], ["email", "asd@email.com"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."section_id" = ?[0m  [["section_id", 980190963]]
+  [1m[36mStudent Destroy (0.1ms)[0m  [1m[31mDELETE FROM "students" WHERE "students"."id" = ?[0m  [["id", 980190963]]
+  [1m[36mSection Destroy (0.1ms)[0m  [1m[31mDELETE FROM "sections" WHERE "sections"."id" = ?[0m  [["id", 980190963]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 980190963], ["LIMIT", 1]]
+  [1m[35m (1.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+StudentTest: test_Should_define_email
+-------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+StudentTest: test_Should_define_roll_no
+---------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------
+StudentTest: test_Should_define_student_model
+---------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------------------
+StudentTest: test_Deleting_a_department_should_delete_all_students
+------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDepartment Create (1.4ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "MECH"], ["created_at", "2019-10-27 13:07:32.256982"], ["updated_at", "2019-10-27 13:07:32.256982"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSection Create (0.1ms)[0m  [1m[32mINSERT INTO "sections" ("name", "created_at", "updated_at", "department_id") VALUES (?, ?, ?, ?)[0m  [["name", "A"], ["created_at", "2019-10-27 13:07:32.260002"], ["updated_at", "2019-10-27 13:07:32.260002"], ["department_id", 980190963]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "department_id", "section_id", "created_at", "updated_at", "roll_no", "email") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "A"], ["department_id", 980190963], ["section_id", 980190963], ["created_at", "2019-10-27 13:07:32.261988"], ["updated_at", "2019-10-27 13:07:32.261988"], ["roll_no", 1], ["email", "asd@email.com"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSection Load (0.2ms)[0m  [1m[34mSELECT "sections".* FROM "sections" WHERE "sections"."department_id" = ?[0m  [["department_id", 980190963]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."section_id" = ?[0m  [["section_id", 980190963]]
+  [1m[36mStudent Destroy (0.1ms)[0m  [1m[31mDELETE FROM "students" WHERE "students"."id" = ?[0m  [["id", 980190963]]
+  [1m[36mSection Destroy (0.1ms)[0m  [1m[31mDELETE FROM "sections" WHERE "sections"."id" = ?[0m  [["id", 980190963]]
+  [1m[36mDepartment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "departments" WHERE "departments"."id" = ?[0m  [["id", 980190963]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 980190963], ["LIMIT", 1]]
+  [1m[35m (1.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------
+StudentTest: test_Should_define_name
+------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+StudentTest: test_Should_create_a_student_and_persist
+-----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDepartment Create (1.3ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "MECH"], ["created_at", "2019-10-27 13:07:32.277020"], ["updated_at", "2019-10-27 13:07:32.277020"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSection Create (0.2ms)[0m  [1m[32mINSERT INTO "sections" ("name", "created_at", "updated_at", "department_id") VALUES (?, ?, ?, ?)[0m  [["name", "A"], ["created_at", "2019-10-27 13:07:32.280006"], ["updated_at", "2019-10-27 13:07:32.280006"], ["department_id", 980190963]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "department_id", "section_id", "created_at", "updated_at", "roll_no", "email") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "A"], ["department_id", 980190963], ["section_id", 980190963], ["created_at", "2019-10-27 13:07:32.287499"], ["updated_at", "2019-10-27 13:07:32.287499"], ["roll_no", 1], ["email", "asd@email.com"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------
+SectionsControllerTest: test_Should_create_new_section
+------------------------------------------------------
+Started GET "/departments" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by DepartmentsController#index as HTML
+  Rendering departments/index.html.erb within layouts/application
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments"[0m
+  Rendered departments/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.1ms)
+Started GET "/departments/new" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by DepartmentsController#new as HTML
+  Rendering departments/new.html.erb within layouts/application
+  Rendered departments/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+Started POST "/departments" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by DepartmentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "department"=>{"name"=>"NEW DEPT"}, "commit"=>"Create Department"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDepartment Create (2.4ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "NEW DEPT"], ["created_at", "2019-10-27 13:07:32.319125"], ["updated_at", "2019-10-27 13:07:32.319125"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/departments
+Completed 302 Found in 5ms (ActiveRecord: 2.6ms)
+Started GET "/departments" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by DepartmentsController#index as HTML
+  Rendering departments/index.html.erb within layouts/application
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments"[0m
+  Rendered departments/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.1ms)
+Started GET "/sections" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by SectionsController#index as HTML
+  Rendering sections/index.html.erb within layouts/application
+  [1m[36mSection Load (0.2ms)[0m  [1m[34mSELECT "sections".* FROM "sections"[0m
+  Rendered sections/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 8ms (Views: 4.2ms | ActiveRecord: 0.2ms)
+Started GET "/sections/new" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by SectionsController#new as HTML
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments"[0m
+  Rendering sections/new.html.erb within layouts/application
+  Rendered sections/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.1ms)
+Started POST "/sections" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by SectionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "section"=>{"name"=>"A", "department_id"=>"980190963"}, "commit"=>"Create Section"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 980190963], ["LIMIT", 1]]
+  [1m[36mSection Create (0.2ms)[0m  [1m[32mINSERT INTO "sections" ("name", "created_at", "updated_at", "department_id") VALUES (?, ?, ?, ?)[0m  [["name", "A"], ["created_at", "2019-10-27 13:07:32.358883"], ["updated_at", "2019-10-27 13:07:32.358883"], ["department_id", 980190963]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/sections
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+Started GET "/sections" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by SectionsController#index as HTML
+  Rendering sections/index.html.erb within layouts/application
+  [1m[36mSection Load (0.1ms)[0m  [1m[34mSELECT "sections".* FROM "sections"[0m
+  Rendered sections/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.1ms)
+  [1m[35m (1.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+SectionsControllerTest: test_Should_navigate_to_new_section_on_click
+--------------------------------------------------------------------
+Started GET "/sections" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by SectionsController#index as HTML
+  Rendering sections/index.html.erb within layouts/application
+  [1m[36mSection Load (0.1ms)[0m  [1m[34mSELECT "sections".* FROM "sections"[0m
+  Rendered sections/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.1ms)
+Started GET "/sections/new" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by SectionsController#new as HTML
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments"[0m
+  Rendering sections/new.html.erb within layouts/application
+  Rendered sections/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+SectionsControllerTest: test_Should_get_all_sections
+----------------------------------------------------
+Started GET "/sections" for 127.0.0.1 at 2019-10-27 18:37:32 +0530
+Processing by SectionsController#index as HTML
+  Rendering sections/index.html.erb within layouts/application
+  [1m[36mSection Load (0.1ms)[0m  [1m[34mSELECT "sections".* FROM "sections"[0m
+  Rendered sections/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------------
+RoutesTest: test_Should_define_department_get_routes_properly
+-------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+RoutesTest: test_Should_define_root_properly
+--------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------
+RoutesTest: test_Should_define_sections_get_routes_properly
+-----------------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------------
+RoutesTest: test_Should_define_create_department_routes_properly
+----------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------
+RoutesTest: test_Should_define_students_get_routes_properly
+-----------------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------
+RoutesTest: test_Should_define_create-students_routes_properly
+--------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------
+RoutesTest: test_Should_define_create_sections_routes_properly
+--------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------------------
+SectionTest: test_Deleting_a_department_should_delete_all_sections
+------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDepartment Create (1.4ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "MECH"], ["created_at", "2019-10-27 13:07:32.421181"], ["updated_at", "2019-10-27 13:07:32.421181"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSection Create (0.1ms)[0m  [1m[32mINSERT INTO "sections" ("name", "created_at", "updated_at", "department_id") VALUES (?, ?, ?, ?)[0m  [["name", "A"], ["created_at", "2019-10-27 13:07:32.424234"], ["updated_at", "2019-10-27 13:07:32.424234"], ["department_id", 980190963]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSection Load (0.1ms)[0m  [1m[34mSELECT "sections".* FROM "sections" WHERE "sections"."department_id" = ?[0m  [["department_id", 980190963]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."section_id" = ?[0m  [["section_id", 980190963]]
+  [1m[36mSection Destroy (0.1ms)[0m  [1m[31mDELETE FROM "sections" WHERE "sections"."id" = ?[0m  [["id", 980190963]]
+  [1m[36mDepartment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "departments" WHERE "departments"."id" = ?[0m  [["id", 980190963]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mSection Load (0.1ms)[0m  [1m[34mSELECT  "sections".* FROM "sections" WHERE "sections"."id" = ? LIMIT ?[0m  [["id", 980190963], ["LIMIT", 1]]
+  [1m[35m (5.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------
+SectionTest: test_Should_create_a_new_section_with_name
+-------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDepartment Create (1.3ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "EEE"], ["created_at", "2019-10-27 13:07:32.437002"], ["updated_at", "2019-10-27 13:07:32.437002"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSection Create (0.1ms)[0m  [1m[32mINSERT INTO "sections" ("name", "created_at", "updated_at", "department_id") VALUES (?, ?, ?, ?)[0m  [["name", "A"], ["created_at", "2019-10-27 13:07:32.440237"], ["updated_at", "2019-10-27 13:07:32.440237"], ["department_id", 980190963]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------
+SectionTest: test_Should_define_section_model
+---------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+DepartmentTest: test_Should_define_Department_model
+---------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------------
+DepartmentTest: test_Should_create_a_new_department_with_name
+-------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDepartment Create (1.3ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "EEE"], ["created_at", "2019-10-27 13:07:32.445963"], ["updated_at", "2019-10-27 13:07:32.445963"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.2ms)[0m  [1m[31mrollback transaction[0m
