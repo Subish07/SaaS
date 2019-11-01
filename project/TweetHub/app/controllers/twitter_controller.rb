@@ -12,10 +12,10 @@ class TwitterController < ApplicationController
 	require 'twitter'
 
 	client = Twitter::REST::Client.new do |config|
-	  config.consumer_key = "API_CONSUMER_KEY"
-	  config.consumer_secret = "API_CONSUMER_SECRET"
-	  config.access_token = "API_ACCESS_TOKEN"
-	  config.access_token_secret = "API_ACCESS_TOKEN_SECRET"
+	  config.consumer_key = "qwSTa4aFJoashomL3gAWFXMTV"
+	  config.consumer_secret = "nmBA64tJcZAyc6ejzuMHCFfQDnZMyyQa4K69sUTpKLHLsQQapo"
+	  config.access_token = "1188391672406667265-vH15ijJofStsWjxdBOZTtzJUALlqKr"
+	  config.access_token_secret = "XAYhr5jHEtdVESeWTQD5x5E7RFFZIbD6mZisY8aLTgDs3"
 	end
 
 	timeline = client.user_timeline("freshworksinc")

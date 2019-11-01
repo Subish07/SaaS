@@ -13,6 +13,7 @@
   <a class="nav-link" href="<%=root_path%>">Home <span class="sr-only">(current)</span></a>
   <a class="nav-link" href="<%=github_index_path%>">GitHub Repository <span class="sr-only">(current)</span></a>
   <a class="nav-link" href="<%=twitter_index_path%>">Tweets</a>
+  <a class="nav-link" href="<%=contacts_index_path%>">Contacts</a>
 </nav>
 <div class="container">
   <% flash.each do |key, value| %>
@@ -22,10 +23,10 @@
   <%= yield %>
 </div>
 
-<footer class="page-footer font-small bg-dark">
+<!--<footer class="page-footer font-small bg-dark">
   <div class="footer-copyright text-center py-3 text-light">(c) 2019 Freshworks:
     <a href="https://freshworks.com"> freshworks.com</a>
   </div>
-</footer>
+</footer>-->
 </body>
 </html>
